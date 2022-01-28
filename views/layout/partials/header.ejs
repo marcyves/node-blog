@@ -1,0 +1,12 @@
+<header>
+    <h1><%= siteName %></h1>
+    <h2><%= pageTitle %></h2>
+    <!-- Menu -->
+    <nav>
+        <ul>
+            <% menu.forEach(lien => { %>
+                <li><a href="<%=lien.url%>"><%=lien.label%></a></li>
+            <% }); %>
+        </ul>
+    </nav>
+</header>

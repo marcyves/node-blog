@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><%= siteName %> | <%= pageTitle %></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/style.css" />
+		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Header -->
+			<%- include('./partials/header') %>
+		<!-- Main -->
+		<div class="flex-container">
+			<main>
+				<%- include(`../pages/${template}`) %>
+			</main>
+			<aside>
+				<%- include('./partials/aside') %>
+			</aside>
+		</div>
+		<!-- Footer -->
+		<%- include('./partials/footer') %>
+		<!-- Scripts -->
+        <%- include('./partials/scripts') %>
+	</body>
+</html>

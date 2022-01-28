@@ -1,0 +1,31 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Un petit blog simple en Node.JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcyves/node-blog.git"
+  },
+  "keywords": [
+    "Node",
+    "blog"
+  ],
+  "author": "Marc Augier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcyves/node-blog/issues"
+  },
+  "homepage": "https://github.com/marcyves/node-blog#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

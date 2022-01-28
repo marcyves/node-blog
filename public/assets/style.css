@@ -1,0 +1,79 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css');
+
+body{
+    background-color: rgb(242, 238, 232);
+    color:rgb(86, 29, 111);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    background-color: rgb(250, 203, 146);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,171,29,1) 70%, rgba(252,69,184,1) 100%);
+    padding: 24px;
+}
+nav{
+    background-color: rgba(250, 203, 146, 0.6);
+    width: 80%;
+    padding: 6px;
+    border-radius: 6px;
+    margin-left: 10%;
+    margin-right: 8%;
+}
+header h1, h2{
+    text-align: center;
+}
+main{
+    background-color: rgba(254, 225, 189, 0.8);
+    padding: 12px;
+    flex: 70%;
+}
+main section{
+    border: 1px solid #d7d5d5;
+    box-shadow: 5px 10px 8px #888888;
+    margin-bottom: 12px;
+    padding: 6px;
+}
+
+aside{
+    padding: 12px;
+    background-color: rgb(247, 177, 92);
+    flex: 25%;
+}
+footer{
+    background-color: rgb(250, 203, 146);
+    padding: 6px;
+}
+/* Le menu de navigation */
+a{
+    text-decoration: none;
+}
+nav a{
+background-color: rgb(235, 161, 71);
+color: rgb(53, 102, 145);
+padding: 8px;
+}
+nav a:hover{
+background-color: rgb(53, 102, 145);
+color: rgb(179, 217, 250);
+}
+nav ul{
+list-style-type:none;
+}
+nav li{
+display: inline;
+}
+.active{
+background-color: rgb(40, 75, 106);
+color: rgb(135, 163, 188);
+}
+/* Les colonnes RWD en flex */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 800px) {
+    main, aside {
+        flex: 100%;
+    }
+}

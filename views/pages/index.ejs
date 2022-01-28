@@ -1,0 +1,8 @@
+<h1><%= siteName %></h1>
+<% articles.forEach(article => {%>
+    <section>
+        <h2><%=article.title%></h2>
+        <p><%=article.text%></p>
+        <p><%=article.author%></p>
+    </section>    
+<%});%>
