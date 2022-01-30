@@ -1,8 +1,19 @@
 <h1><%= siteName %></h1>
-<% articles.forEach(article => {%>
-    <section>
-        <h2><%=article.title%></h2>
-        <p><%=article.text%></p>
-        <p><%=article.author%></p>
-    </section>    
-<%});%>
+<% if(messages) {%>
+    <h2>Votre demande a échoué</h2>
+    <ul>
+        <% messages.forEach(erreur => {%>
+            <li style="color:red;"><%=erreur.msg%></li>
+        <%});%>
+    </ul>
+<%} else{%>
+    <% articles.forEach(article => {%>
+        <section>
+            <h2><%=article.title%></h2>
+            <p><%=article.text%></p>
+            <p><%=article.author%></p>
+        </section>    
+    <%});%>
+<%}%>
+</p>
+
