@@ -43,7 +43,7 @@ module.exports = (params) => {
         const articles = await articleController.getArticles();
 
         rep.render('layout', { pageTitle: "Il y a du nouveau",
-                               messages: messages.erreurs,
+                               messages: messages.errors,
                                page: "index", articles });
     });
     
