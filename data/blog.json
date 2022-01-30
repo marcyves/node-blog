@@ -3,13 +3,13 @@
         {
             "id": 1,
             "title": "Mon premier article",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
+            "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
             "author": "Cicero"
         },
         {
             "id": 2,
             "title": "Mon deuxième article",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
+            "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
             "author": "Marc Aurèle"
         }
 

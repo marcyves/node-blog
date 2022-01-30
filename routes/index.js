@@ -2,19 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 const blogRouter = require('./article');
+const aproposRouter = require('./apropos');
 
 module.exports = (params) => {
-    router.get('/', async (req, rep) => {
+    router.get('/', async (requete, reponse) => {
         const { articleController } = params;
         const articles = await articleController.getArticles();
 
-        rep.render('layout', { pageTitle: "Bienvenue", template: "index", articles });    
+        reponse.render('layout', { pageTitle: "Bienvenue", messages: null, page: "index", articles });    
     });
 
-    router.use('/blog', blogRouter(params));
+    router.use('/article', blogRouter(params));
+    router.use('/apropos', aproposRouter());
 
-    router.use((err, req, rep) => {
-        rep.render('layout', { pageTitle: "Cette page n'existe pas", template: "404", erreur: err });
+    router.use('/', (requete, reponse) => {
+        reponse.render('layout', { pageTitle: "Cette page n'existe pas", page: "erreur" });
     });
     
     return router;
