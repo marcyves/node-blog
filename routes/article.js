@@ -4,24 +4,24 @@ const { check, validationResult } = require('express-validator');
 
 module.exports = (params) => {
 
-    const { contactController } = params;
+    const { articleController } = params;
 
     router.post('/', [
-        check('name')
-        .trim()
-        .isLength({min: 3})
-        .escape()
-        .withMessage('Le nom est obligatoire'),
-        check('titre')
+        check('title')
         .trim()
         .isLength({min: 10})
         .escape()
-        .withMessage('Un titre de plus de 10 caractères est obligatoire'),
+        .withMessage('Le titre est obligatoire'),
+        check('author')
+        .trim()
+        .isLength({min: 2})
+        .escape()
+        .withMessage("Le nom de l'auteur est obligatoire et dois faire plus de 2 caractères "),
         check('message')
         .trim()
         .isLength({min: 10})
         .escape()
-        .withMessage('Un texte de plus de 50 caractères est obligatoire'),
+        .withMessage('Un texte de plus de 10 caractères est obligatoire'),
     ],
     async (req, rep) => {
 
@@ -34,15 +34,17 @@ module.exports = (params) => {
             messages = {
                 errors: errors.array(),
             };
+            console.error("Erreur écriture message" + messages);
         } else {
             const { name, email, message } = req.body;
-            await contactController.addEntry(name, email, message);
+            await articleController.addEntry(name, email, message);
         };
 
-        rep.render('layout', { pageTitle: "Contact",
-                               messages: messages.errors,
-                               template: "contact", 
-                               contact: req.body });
+        const articles = await articleController.getArticles();
+
+        rep.render('layout', { pageTitle: "Il y a du nouveau",
+                               messages: messages.erreurs,
+                               page: "index", articles });
     });
     
     return router;
