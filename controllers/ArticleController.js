@@ -28,13 +28,13 @@ constructor(datafile) {
     const data = await this.loadData();
     // We are using map() to transform the array we get into another one
     return data.map(article => {
-        return { id: article.id, title: article.title, text: article.text, author: article.author };
+        return { id: article.id, title: article.title, message: article.text, author: article.author };
         });
     }
 
     async addEntry(title, text, author){
         const data = (await this.getData()) || [];
-        data.unshift({ title, text, author});
+        data.unshift({ title, message, author});
 
         return writeFile(this.datafile, JSON.stringify(data));
     }
