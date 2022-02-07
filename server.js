@@ -33,6 +33,11 @@ fs.readFile(path.join(__dirname, paramsFile), 'utf8' , (err, data) => {
     app.locals.menu = JSON.parse(data).nav;
 });
 
+app.use((req, res, next) => {
+  console.log('Time:', Date.now(), req.method, req.url);
+  next();
+});
+
 app.use('/', router({
   articleController,
 }));
