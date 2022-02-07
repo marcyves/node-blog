@@ -1,15 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
+const { route } = require('express/lib/application');
 
 module.exports = (params) => {
 
     const { articleController } = params;
 
+    router.get('/', (req, rep) => {
+        rep.redirect('/');
+    });
+
+
     router.post('/', [
         check('title')
         .trim()
-        .isLength({min: 10})
+        .isLength({min: 5})
         .escape()
         .withMessage('Le titre est obligatoire'),
         check('author')
@@ -26,7 +32,7 @@ module.exports = (params) => {
     async (req, rep) => {
 
         const errors = validationResult(req);
-        console.log(req.body);
+//        console.log(req.body);
 
         let messages = {};
 
@@ -34,10 +40,9 @@ module.exports = (params) => {
             messages = {
                 errors: errors.array(),
             };
-            console.error("Erreur écriture message" + messages);
         } else {
-            const { name, email, message } = req.body;
-            await articleController.addEntry(name, email, message);
+            const { title, message, author } = req.body;
+            await articleController.addEntry(title, message, author);
         };
 
         const articles = await articleController.getArticles();
