@@ -1,17 +1,15 @@
-{
-    "articles": [
+[
         {
-            "id": 1,
+            "id": 2,
             "title": "Mon premier article",
             "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
             "author": "Cicero"
         },
         {
-            "id": 2,
+            "id": 1,
             "title": "Mon deuxième article",
             "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque saepe officia at, illum natus ad error atque accusantium qui dolorum accusamus asperiores quae dignissimos labore eum quas et vitae?",
             "author": "Marc Aurèle"
         }
 
-    ]
-}
+]

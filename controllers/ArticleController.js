@@ -19,23 +19,34 @@ constructor(datafile) {
 
     async loadData() {
         const data = await readFile(this.datafile, "utf8");
-        return JSON.parse(data).articles;
+        return JSON.parse(data);
     }
     /**
      * Returns a list of articles 
      */
     async getArticles() {
     const data = await this.loadData();
-    // We are using map() to transform the array we get into another one
     return data.map(article => {
-        return { id: article.id, title: article.title, message: article.text, author: article.author };
+        return { id:article.id, title: article.title, message: article.text, author: article.author };
         });
     }
 
-    async addEntry(title, text, author){
-        const data = (await this.getData()) || [];
-        data.unshift({ title, message, author});
+    async getNextId() {
+        const data = await this.loadData();
+        let id_max = 0;
+        data.forEach((article) =>{
+            if (article.id > id_max){
+                id_max = article.id;
+            }
+        });
+        return id_max + 1;
+    }
 
+    async addEntry(title, message, author){
+        const data = (await this.loadData()) || [];
+        const id = await this.getNextId();
+        console.log("max: ",id)
+        data.unshift({ id, title, message, author});
         return writeFile(this.datafile, JSON.stringify(data));
     }
 
